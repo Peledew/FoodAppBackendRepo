@@ -1,1 +1,1 @@
-# WebProjekat
+# FoodApp Backend (Java Springboot)
