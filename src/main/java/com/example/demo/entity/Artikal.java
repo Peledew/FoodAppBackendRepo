@@ -25,6 +25,11 @@ public class Artikal implements Serializable {
     @Column
     private String opis;
 
+    @Column(length = 64)
+    private String photo;
+
+    public Artikal(){}
+
     //Getteri i Setteri
     public long getId() {
         return id;
@@ -72,6 +77,14 @@ public class Artikal implements Serializable {
 
     public void setOpis(String opis) {
         this.opis = opis;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     @Override

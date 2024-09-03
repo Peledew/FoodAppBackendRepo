@@ -10,7 +10,7 @@ public class Komentar implements Serializable {
     private long id;
 
     //Kupac
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_kupca", referencedColumnName = "id")
     private Kupac kupac;
 
@@ -24,6 +24,15 @@ public class Komentar implements Serializable {
 
     @Column
     private int ocena;
+
+    public Komentar(){}
+
+    public Komentar(Kupac kupac, Restoran restoran, String tekstKomentara, int ocena) {
+        this.kupac = kupac;
+        this.restoran = restoran;
+        this.tekstKomentara = tekstKomentara;
+        this.ocena = ocena;
+    }
 
     //Getteri i setteri
     public long getId() {

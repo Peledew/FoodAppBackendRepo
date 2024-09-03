@@ -18,6 +18,9 @@ public class Restoran implements  Serializable{
     @Column
     private String tipRestorana;
 
+    @Enumerated(EnumType.STRING)
+    private EnumStatusRestorana statusRestorana;
+
     //Restoran moze imate vise artikala
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "id_restorana", referencedColumnName = "id")
@@ -27,6 +30,8 @@ public class Restoran implements  Serializable{
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "ID_lokacije", referencedColumnName = "id")
     private Lokacija lokacija;
+
+    public Restoran(){}
 
     public long getId() {
         return id;
@@ -72,14 +77,24 @@ public class Restoran implements  Serializable{
         return artikli.add(a);
     }
 
+    public EnumStatusRestorana getStatusRestorana() {
+        return statusRestorana;
+    }
+
+    public void setStatusRestorana(EnumStatusRestorana statusRestorana) {
+        this.statusRestorana = statusRestorana;
+    }
+
     @Override
     public String toString() {
         return "Restoran{" +
                 "id=" + id +
                 ", naziv='" + naziv + '\'' +
                 ", tipRestorana='" + tipRestorana + '\'' +
+                ", statusRestorana=" + statusRestorana +
                 ", artikli=" + artikli +
                 ", lokacija=" + lokacija +
+                ", statusRestorana=" + statusRestorana +
                 '}';
     }
 }

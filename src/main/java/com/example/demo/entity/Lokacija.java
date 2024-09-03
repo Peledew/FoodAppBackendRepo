@@ -19,6 +19,13 @@ public class Lokacija implements Serializable{
     @Column
     private String adresa;
 
+    public Lokacija(){}
+
+    public Lokacija(double geografskaSirina, double geografskaDuzina, String adresa) {
+        this.geografskaSirina = geografskaSirina;
+        this.geografskaDuzina = geografskaDuzina;
+        this.adresa = adresa;
+    }
 
     public double getGeografskaSirina() {
         return geografskaSirina;
@@ -51,7 +58,6 @@ public class Lokacija implements Serializable{
     public void setId(long id) {
         this.id = id;
     }
-
 
     @Override
     public String toString() {
